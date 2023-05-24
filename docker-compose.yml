@@ -1,0 +1,35 @@
+version: '3.1'
+
+services:
+  database:
+    container_name: SQLServer2019
+    build:
+      context: .
+      target: SQL2019
+    ports:
+      - 1433:1433
+    restart: always
+  mysqldb:
+    container_name: MySqlDB
+    build:
+      context: .
+      target: MySql8
+    ports:
+      - 20001:3306
+    restart: always
+  postgres:
+    container_name: PostgresDB
+    build:
+      context: .
+      target: POSTGRESQL
+    ports:
+      - 20002:5432
+    restart: always
+  oracledb:
+    container_name: Oracle9DB
+    build:
+      context: .
+      target: ORACLE9
+    ports:
+      - 20003:1521
+    restart: always
